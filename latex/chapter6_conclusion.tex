@@ -1,0 +1,90 @@
+%**************** conclusions ****************
+
+\chapter{Conclusions and Future work}
+\label{chapter:conclusion}
+
+In this dissertation, I have addressed the motivation for the inclusion of prosodic modelling in systems with spoken input. Initially, I have tried to keep a general view on the issue while explaining my motivation for this work. As it is not only the linguistic content but also the para-linguistic content that counts in human communication, machines should also pay attention to it in processing natural languages. By machines, I mean the constantly increasing computational methods that help humans in many tasks that involve understanding our own ways of communication. This intelligence can already be seen in interactive voice based assistants, automatic transcription or translation systems. Moreover, its growth promises that it will be ubiquitous in near future to have systems understanding and interacting as humans do. 
+
+The trend in the development of these machines is that focus is given into the extraction of the linguistic content when human speech input is being processed. Prosody, which has an important linguistic and para-linguistic role in communication is generally not given the attention it deserves. Recent work that showed great progress in speech recognition and machine translation through the rise of deep neural network based methods, focus merely on the recognition and transfer of the linguistic content. There is relatively a smaller number of studies exploring approaches including para-linguistic content that speech prosody carries.
+
+Defined within this broad perspective, I have argued and demonstrated my point specifically on two main applications that processes spoken language: automatic speech transcription and spoken language translation. In the former one, I focused my attention on the effect prosody has on the punctuation of the resulting transcription. In the latter one, I experimented on the inclusion of pause features on both input and output of a sequence-to-sequence translation pipeline where movie domain data was employed. To accommodate both of these data-driven processes, a number of toolkits were developed for the creation, processing, handling and visualization of speech data annotated with acoustic/prosodic features. 
+
+This chapter is organized as follows: I will give final conclusions regarding the developments and experiments conducted within the framework of this dissertation in Section \ref{conclusions:conclusions}. Next, I will sketch a roadmap for future work in Section \ref{conclusions:future}. Finally, the contributed artifacts that are the results of the work in this dissertation is given in three sections: publications in Section \ref{conclusions:publications}, datasets in Section \ref{conclusions:datasets} and open source software resources in Section \ref{conclusions:software}.
+
+\section{Conclusions}
+\label{conclusions:conclusions}
+
+The motivation to enhance speech related methodologies with prosodic modellings comes with a cost and that mostly resides in the field of data harvesting. It is notable the portion of the work given in this dissertation only involved in development of methodologies to collect naturally expressive speech data and shape them to be processed in machine learning based applications. A complete pipeline for collecting, handling, annotation, storage and visualization of prosodic data has been developed. \textit{Proscript} library, which accommodates the process of acoustic/prosodic annotation of transcripted speech data, served a basis for many of the experimentation presented. Regarding collection of large datasets, \textit{Prosograph} was developed as a spin-off framework which served greatly in manual examination of this type of data. It was seen that there was a lot to learn from the data itself during the design of machine-learning based systems that process prosody. Nature of prosody shows that it is worth its own set of toolkit for examination and studying. Prosograph addressed this with its easily programmable interface that helped visualization and interaction of speech related characteristics in huge chunks of data. 
+
+I furthermore addressed the lack of available naturally expressive parallel spoken data to the scientific community by presentation of a novel methodology for extracting parallel corpora from dubbed movies. Although this methodology comes with its own challenges depending on the source of data, it shows the valuable resource for parallel expressive speech that lies in field of dubbing. Using this methodology, an English-Spanish parallel speech dataset was gathered, annotated with acoustic-prosodic features and published openly for the speech research community. This is to my knowledge first example of a corpus containing a rich variety of prosodic characteristics and is bilingually structured. 
+
+A part of this dissertation focused on the topic of punctuation as it was seen as the closest form of symbology in written text that is influenced by prosody. Output of speech recognition interfaces lack this form of symbology. Punctuation manifests intonational patterns that are influenced by modalities (question, affirmation, exclamation etc.) as the type of the punctuation mark at the end of a sentence, or breaks and phrasing manifest as commas. These symbols prove to be essential for both humans and machines during the reading of the transcript. Although these theme is explored and proven that prosodic features do improve accuracy of the punctuation marks generated for raw transcripts, there was no past work that studied the effect of various features to the detection of different types of punctuation marks. 
+
+An application oriented approach was followed by taking a state-of-the-art RNN-based punctuation recovery system as basis and expanding it to handle more types of prosodic features that were available through a corpus based on conference talks. Experiments that were conducted on purely spoken data showed that combination of the features word, POS, intra-word pause and pitch worked best for accurate detection of punctuation marks in general. The proposed architecture that processes lexical and prosodic features in parallel and trains on one pass achieved a significant improvement compared to the baseline approach when only spoken data was used. An F-score of 83\%, 71.8\% and 55.2\% was obtained with various feature combinations in accurate restoration of periods, question marks and commas. The methodology proved to give promising results also when employed within a framework where an automatic speech recognition (ASR) system was employed. 
+
+Effect of prosody in punctuation restoration modelling was tested on two subsequent processes: dependency parsing and machine translation. The former evaluation was conducted on a small dataset and showed that accounting of prosody does imply an improvement in correct paring of the sentences. This shows that commas which are detected more accurately with prosodic models does improve parsing despite its low F-score. Within a spoken language machine translation framework, punctuation restoration that was applied as a preprocessing step before machine translation showed better results with the inclusion of prosodic modelling. 
+
+A spoken language machine translation framework was built in order to experiment with prosodic input and output. While previous work on speech-to-speech translation focused on transfer of intonational patterns and emphasis, the framework introduced in this dissertation was based on involvement of raw prosodic features into a sequence-to-sequence MT setup. Basing on the movie domain, my motivation was to build an automatic dubbing pipeline that took prosodic features into the effect. Prosodic modelling through punctuation and as pause features on the input side showed improvement with respect to translation quality. Although some meaningful output has been recorded in decoding pause features, results showed to be poor in transferring pause features. I presume this can be overcame with better quality text data and a larger parallel audio corpus. 
+
+%All work resulting from this work is open to the community. Effort was given in making these systems as open and resusable as possible for community. 
+
+\section{Future Work}
+\label{conclusions:future}
+
+As follow-up to the work in this dissertation, a great range of research lines and also applications can be mentioned. With respect to parallel data collection methodologies, a more systematic approach can be followed with collaboration of dubbing companies. Through the cleaner data that is available only during the process but not in the final form of dubbed work, better corpora can be obtained. 
+
+The prosodic punctuation restoration framework introduced in this dissertation is planned to be integrated within an open source Catalan speech recognition pipeline \citep{Kulebi2018}. This will give the opportunity to compare punctuation and prosodic behaviour between the languages English and Catalan. However, the low performing comma detection needs to be addressed in future work. As it is a punctuation mark that is defined mostly within grammatical rules, it suggests the integration of a hybrid rule-based modelling approach. Also, modelling of intonation can be improved by having a higher precision of sampling of pitch movements. Having pitch aligned to linguistic information on syllable or phoneme level can work better in punctuation recovery. 
+
+Applications that automate captioning, subtitling and dubbing will be even more relevant once an acceptable quality is achieved in real-world applications. Prosodic modelling for these applications is still a virgin area to be discovered. Style tokens \citep{style_tokens} that achieve conveying of prosodic style between speakers can be useful in getting synthesis closer to acting. 
+
+\section{List of Publications}
+\label{conclusions:publications}
+A number of papers were successfully published in peer-reviewed conferences that cover some of the work presented in this dissertation. Below lists these publications together with the related ones that the author contributed:
+
+\begin{itemize}
+\item Öktem, A., Farrús, M., Bonafonte, A. \textit{Bilingual Prosodic Dataset Compilation for Spoken Language Translation.} Proc. IberSPEECH 2018, October 25-29 2018, Barcelona, Spain.
+
+\item Külebi, B., Öktem, A., \textit{Building an Open Source Automatic Speech Recognition System for Catalan}. Proc. IberSPEECH 2018, October 25-29 2018, Barcelona, Spain.
+
+\item Öktem A, Farrús M, Bonafonte A., \textit{Visualizing Punctuation Restoration in Speech Transcripts with Prosograph}. Proc. Interspeech 2018, p. 1493-4, Sep 2-6 2018, Hyderabad, India.
+
+\item Öktem A, Farrús M, Wanner L. \textit{Punctuating Transcribed Speech Using Lexical and Prosodic Cues via Attentional Parallel RNNs.} (Under review) Computer Speech and Language. Elsevier.
+
+\item Öktem A, Farrús M, Wanner L., \textit{Attentional Parallel RNNs for Generating Punctuation in Transcribed Speech}. In: Camelin N, Estève Y, Martín-Vide C. Statistical Language and Speech Processing. 5th International Conference SLSP 2017; 2017 Oct 23-25; Le Mans, France. Cham: Springer, 2017. p. 131-42. (LNCS; no. 10583 ). DOI: 10.1007/978-3-319-68456-7\_11
+
+\item Burga A, Öktem A, Wanner L., \textit{Revising the METU-Sabancı Turkish treebank: an Exercise in Surface-syntactic Annotation of Agglutinative Languages.} In: Montemagni S, Nivre J, editors. Proceedings of the Fourth International Conference on Dependency Linguistics (Depling 2017); 2017 Sept 18-20; Pisa, Italy. ACL; 2017. p. 32-41.
+
+\item Öktem A, Farrús M, Wanner L., \textit{Prosograph: A Tool for Prosody Visualisation of Large Speech Corpora}. In: Proceedings of the 18th Annual Conference of the International Speech Communication Association (INTERSPEECH 2017),p. 809-10, Stockholm, Sweden: ISCA; 2017. 
+
+\item Öktem A, Farrús M, Wanner L., \textit{Automatic Extraction of Parallel Speech Corpora from Dubbed Movies}. In Proceedings of the 10th Workshop on Building and Using Comparable Corpora (BUCC), p. 31-35, Vancouver, Canada: ACL, 2017. 
+
+\end{itemize}
+
+\section{List of Datasets}
+\label{conclusions:datasets}
+Both datasets that were compiled for the work in this dissertation are published openly for the use of the research community. They are listed below with their short description:
+
+\begin{itemize}
+    \item \textbf{TED Talks Corpus} - TED talks are a set of conference talks lasting in average 15 minutes each that have been held worldwide in more than 100 languages. They include a large variety of topics, from technology and design to science, culture and academia. The corpus consists of 1038 talks by 877 English speakers, uttering a total amount of 155174 sentences. The corresponding transcripts, as well as audio and video files, are available on TED's website\footnote{\url{http://www.ted.com}}. 
+    LINK: \url{http://hdl.handle.net/10230/33981}
+    
+    \item \textbf{Heroes Corpus} - Heroes corpus contains mapped bilingual (English and Spanish) speech segments from the TV series Heroes. It contains 7000 single speaker speech segments extracted from the original and Spanish dubbed version of 21 episodes. Audio segments are accompanied with subtitle transcriptions and word-level prosodic/paralinguistic information.
+    LINK: \url{http://hdl.handle.net/10230/35572}
+\end{itemize}
+
+
+\section{List of Software Resources}
+\label{conclusions:software}
+
+All software related to the work in this dissertation were developed with the mindset that another researcher would like to reproduce my results or improve them. Below is the list of repositories that contain the source code used in the experiments:
+
+\begin{itemize}
+    \item \textbf{movie2parallelDB} - Automatic parallel speech database extractor from dubbed movies. LINK: \url{https://github.com/TalnUPF/movie2parallelDB}
+    \item \textbf{Prosograph} - A Visualizer for prosodically annotated speech corpora written with Processing. LINK: \url{https://github.com/TalnUPF/Prosograph}
+    \item \textbf{PunkProse} - A library for punctuation generation for speech transcripts using lexical and prosodic features. LINK: \url{https://github.com/TalnUPF/punkProse}
+    \item \textbf{Proscript} - A Python package to help create proscript files. Proscript helps represent speech with annotated prosody. The library carries automatic annotation scripts that are based on Praat. LINK: \url{https://github.com/alpoktem/proscript}
+    \item \textbf{TED talks corpus preprocessing scripts} - A library for creating a trainable corpus from the prosodically annotated TED corpus prepared by Mireia Farrús and Catherine Lai. LINK: \url{https://github.com/alpoktem/ted_preprocess}
+    \item \textbf{Prosodic punctuation generation demo on ASR} - This is a demo software that contains scripts to punctuate audio recordings using punkProse library. It is intended to use for demonstration purposes. LINK: \url{https://github.com/alpoktem/punkProse_ASR-demo}
+    \item \textbf{TransProse} - A framework based on sequence-to-sequence neural networks for translation with prosodic features. LINK: \url{https://github.com/alpoktem/TransProse}
+\end{itemize}
+

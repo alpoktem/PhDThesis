@@ -1,0 +1,254 @@
+\documentclass[12pt, a4paper,twoside]{tesi_upf}
+
+% added packages
+\usepackage[inline]{enumitem}
+\usepackage{booktabs,siunitx}
+%\usepackage[inline]{enumitem}
+%\usepackage{rotating}
+%\usepackage{float}
+% Quote packages
+%\usepackage{quotchap}
+\usepackage{csquotes}
+\usepackage{courier}
+\usepackage{epigraph}
+\setlength\epigraphwidth{8cm}
+\setlength\epigraphrule{0pt}
+% Color assignment to names for revision
+\usepackage[dvipsnames]{xcolor}
+\newcommand{\alp}[1]{\textcolor{red}{#1}}
+\newcommand{\toni}[1]{\textcolor{blue}{#1}}
+\newcommand{\mireia}[1]{\textcolor{green}{#1}}
+\renewcommand{\star}{{\usefont{OML}{cmm}{m}{it}\symbol{63}}}
+% to add blank pages
+\usepackage{afterpage}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hhline}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{subfig}
+
+%listing style
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true, frame=single, columns=fullflexible}
+
+%tick marks 
+\usepackage{amssymb}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+% appendices
+\usepackage[toc,page]{appendix}
+\usepackage{tipa}
+\usepackage{breakcites}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+%citation
+\usepackage{natbib}
+%\usepackage{apalike}
+\usepackage{bibentry}
+\nobibliography*
+
+%CODIFICATION
+\usepackage[utf8x]{inputenc}
+
+%LANGUAGE
+\usepackage[english,catalan,spanish]{babel}
+
+%ONLY TO OBTAIN MARK BANK INDEX INDICATION A4
+\usepackage[cam,a4,center,frame]{crop}
+
+%INCLUDE GRAPHICS AND THE LOGO OF THE UPF
+\usepackage{graphicx}
+
+%FONTS TIMES OR GARAMOND, 
+\usepackage{times}
+%\usepackage{garamond}
+
+
+%WITHOUT HEADINGS: NO MODIFICATION
+\pagestyle{plain}
+
+%FOR THE INDEX OF SUBJECTS
+\usepackage{makeidx}
+\makeindex
+
+%CIRCLE AROUND CHARACTERS
+\usepackage{tikz}
+ 
+\newcommand*\mycirc[1]{%
+   \begin{tikzpicture}
+     \node[draw,circle,inner sep=1pt] {#1};
+   \end{tikzpicture}}
+
+%BIBLIOGRAPHY STYLE
+\bibliographystyle{apalike}
+
+%SELECT LANGUAGE
+\selectlanguage{english}
+
+%THE TABLE OF CONTENTS IS TITLE CONTENTS
+\addto\captionscatalan
+  {\renewcommand{\contentsname}{\Large \sffamily Sumari}}
+
+%Paragraph skip amount
+%\setlength{\parskip}{1em}
+% Toni: This is what I always use: the plus and minus is to give some flexibility
+\setlength{\parskip}{1ex plus 1pt minus 1pt}
+
+% Toni
+% Comment, if you prefer indent
+%\setlength{\parindent}{0mm}
+
+
+\usepackage{ulem}
+\newcommand{\toniD}[1]{\textcolor{olive!50!black}{ \sout{#1}}}
+\newcommand{\toniI}[1]{\textcolor{olive!50!black}{\uwave{#1}}}
+\newcommand{\toniS}[2]{\toniD{#1} \toniI{#2}}
+%\newcommand{\toniD}[1]{}
+%\newcommand{\toniI}[1]{#1}
+%\newcommand{\toniS}[2]{#2}
+
+
+%ADD YOUR DATA
+\title{Incorporating Prosody into Neural Speech Processing Pipelines}
+\subtitle{Applications on automatic speech transcription and spoken language machine translation}
+\author{Alp \"Oktem}
+\thyear{2018}
+\department{DE TECNOLOGIES DE LA INFORMACI\'{O} I LES COMUNICACIONS}
+\supervisor{Dra. Mireia Farr\'{u}s i Dr. Antonio Bonafonte}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\maketitle
+
+\cleardoublepage
+
+%%%%%% Dedication
+
+\noindent Write here your dedication
+
+\cleardoublepage
+
+%%%%%% End dedication
+
+% Acknowledgements
+% ---------------------------------------------------------------------
+\input{latex/acknowledgements.tex}
+\newpage\leavevmode\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------
+
+\frontmatter
+
+% Abstract
+% ---------------------------------------------------------------------
+\input{latex/abstract.tex}
+\newpage\leavevmode\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------
+
+% Table of contents
+% ---------------------------------------------------------------------
+\tableofcontents
+% ---------------------------------------------------------------------
+
+% List of figures
+% ---------------------------------------------------------------------
+\listoffigures
+\addcontentsline{toc}{chapter}{Figures index}
+% ---------------------------------------------------------------------
+
+% List of tables
+% ---------------------------------------------------------------------
+\listoftables
+\addcontentsline{toc}{chapter}{Tables index}
+\newpage\leavevmode\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------
+
+\mainmatter
+
+% CHAPTER 1: INTRO
+% ---------------------------------------------------------------------
+\input {latex/chapter1_intro.tex}
+\newpage\leavevmode\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------
+
+% CHAPTER 2: SoTA
+% ---------------------------------------------------------------------
+\input {latex/chapter2_sota.tex}
+\newpage\leavevmode\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------
+
+% CHAPTER 3: Corpus works
+% ---------------------------------------------------------------------
+\input {latex/chapter3_corpus.tex}
+\newpage\leavevmode\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------
+
+% CHAPTER 4: Punctuation works
+% ---------------------------------------------------------------------
+\input {latex/chapter4_punkProse.tex}
+\newpage\leavevmode\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------
+
+% CHAPTER 5: Translation works
+% ---------------------------------------------------------------------
+\input {latex/chapter5_transProse.tex}
+\newpage\leavevmode\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------
+
+% CHAPTER 6: Conclusions
+% ---------------------------------------------------------------------
+\input {latex/chapter6_conclusion.tex}
+\newpage\leavevmode\thispagestyle{empty}\newpage
+% ---------------------------------------------------------------------
+
+
+% Bibliography
+% ---------------------------------------------------------------------
+\bibliography{bibliography}
+% ---------------------------------------------------------------------
+
+
+% Index
+% ---------------------------------------------------------------------
+\printindex
+% ---------------------------------------------------------------------
+
+% ANNEXES
+% ---------------------------------------------------------------------
+%\begin{appendices}
+%\input {latex/annex1.tex}
+%\newpage\leavevmode\thispagestyle{empty}\newpage
+
+% ---------------------------------------------------------------------
+
+\end{document}
+
+%NUMBER OF THE EXTERNAL PAGE EXCEPT IN THE FIRST PAGE OF EACH CAPITAL
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyfoot[RO]{\thepage}
+\fancyfoot[LE]{\thepage}
+
+
+%MULTIPLE INDEX
+%In the preamble
+\usepackage{multind}
+\makeindex{authors}
+%Introduction to form entries
+\index{authors}{Einstein}
+%Situation of the Index
+\printindex{authors}{Author index}
+%The \ usepakage {makeidx} \ makeindex \ printindex commands must be removed
+%You need to exacute from the command line makeindex authors
