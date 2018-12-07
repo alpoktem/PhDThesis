@@ -2,19 +2,19 @@
 
 \chapter{State of the Art}
 \label{chapter:sota}
-As presented in the introductory chapter, this dissertation focuses on two main applications: automatic transcription and spoken language translation. In the first part of this chapter, I will give an overview on the main research areas that are related to these two topics with a focus on neural network based approaches. Automatic transcription, which is made possible with \textit{automatic speech recognition (ASR)}, is explained in Section \ref{sota:asr}. Approaches to the problem of punctuation recovery in ASR output are presented in Section \ref{sota:punk_on_asr}. \textit{Neural machine translation} is presented in Section \ref{sota:nmt} with a focus on \textit{spoken language machine translation}. After a brief introduction to text-to-speech synthesis (TTS) systems in Section \ref{sota:tts}, I will present the concept of speech-to-speech translation with recent work on its field in Section \ref{sota:s2s}.
+As presented in the introductory chapter, this dissertation focuses on two main applications: automatic transcription and spoken language translation. In the first part of this chapter, I will give an overview on the main research areas that are related to these two topics with a focus on neural network-based approaches. Automatic transcription, which is made possible with \textit{automatic speech recognition (ASR)}, is explained in Section \ref{sota:asr}. Approaches to the task of punctuation recovery in ASR output are presented in Section \ref{sota:punk_on_asr}. \textit{Neural machine translation} is presented in Section \ref{sota:nmt} with a focus on \textit{spoken language machine translation}. After a brief introduction to text-to-speech synthesis (TTS) systems in Section \ref{sota:tts}, I will present the concept of speech-to-speech translation with recent work on its field in Section \ref{sota:s2s}.
 
-The second part of this chapter reviews relevant work on the inclusion of prosody into these systems. Focus is given on usage of prosody in punctuation recovery in Section \ref{sota:punk_prosody} and adding prosodic modalities on spoken language translation in Section \ref{sota:prosody_in_smt}. 
+The second part of this chapter reviews relevant work on the inclusion of prosody into these systems. Focus is given on usage of prosody in punctuation recovery in Section \ref{sota:punk_prosody} and adding prosodic modelling on spoken language translation in Section \ref{sota:prosody_in_smt}. 
 
 \section{Neural Speech Processing Overview}
 %speech processing systems overview
 
-A speech processing system consists of at least one of the following modules: Automatic Speech Recognition (ASR) for converting verbal communication into discrete symbolic form (i.e.~text), text-to-speech (TTS) system for generating information in spoken form, and a spoken language understanding (SLU) system for mapping between actions and verbal utterances \citep{slp_book}. Depending on the application, versions and combinations of these systems are employed to solve the task involved with it. For instance, an automatic subtitling system would involve an ASR system together with a speech activity detection module to transcribe the spoken parts in a media. If the subtitling is to be done in another language, the same pipeline would be followed by a machine translation system. A complete speech-to-speech pipeline would result in an automatic dubbing system where translated content would be synthesized using a TTS system. 
+A spoken language system consists of at least one of the following modules: Automatic Speech Recognition (ASR) for converting verbal communication into discrete symbolic form (i.e.~text), text-to-speech (TTS) system for generating information in spoken form, and a spoken language understanding (SLU) system for mapping between actions and verbal utterances \citep{slp_book}. Depending on the application, versions and combinations of these systems are employed to solve the task involved with it. For instance, an automatic subtitling system would involve an ASR system together with a speech activity detection module to transcribe the spoken parts in a media. If the subtitling is to be done in another language, the same pipeline would be followed by a machine translation system. A complete speech-to-speech pipeline would result in an automatic dubbing system where translated content would be synthesized using a TTS system. 
 
 %neural networks overview. 
-Research on these subareas of speech technology has recently experienced a great shift towards the usage of \textit{artificial neural networks (ANN)}. Popularity of ANN in general has risen in the recent years mostly due to advancements in computing power. Specifically, training of large and deep neural networks in a reasonable amount of time has been made possible with \textit{Graphical Processing Units (GPUs)}.  
+Research on these subareas of speech technology has recently experienced a great shift towards the usage of \textit{artificial neural networks (ANN)}. Popularity of ANN in general has risen in the recent years mostly due to advancements in computing power. Specifically, training of large and deep neural networks (DNN) in a reasonable amount of time has been made possible with \textit{Graphical Processing Units (GPUs)}.
 
-I will introduce briefly the concept of \textit{deep neural networks (DNNs)} as they form the basis of the experimentation presented in this dissertation. The information presented in this section can be consulted in \cite{shigeru2000handbook} and \cite{bengio_dl} for a deeper understanding. 
+I will introduce briefly the concept of DNNs as they form the basis of the experimentation presented in this dissertation. The information presented in this section can be consulted in \cite{shigeru2000handbook} and \cite{bengio_dl} for a \textit{deeper} understanding. 
 
 \subsection{Deep Neural Networks}
 \label{sota:dnns}
@@ -26,7 +26,7 @@ I will introduce briefly the concept of \textit{deep neural networks (DNNs)} as 
   \label{sota:neuron}
 \end{figure}
 
-An artificial neural network consists of a group of nodes that are modeled after the neurons in a biological neural system and connections between them modelling the axons in the neural system. Figure \ref{sota:neuron} illustrates the structure of one neural node, which is also referred as \textit{perceptron} or simply \textit{neuron}. Each connection towards a neuron is an input ($x_i$) and is associated with a weight coefficient ($w_i$). The basic function of a neuron defines the input signal to the neuron as:
+An artificial neural network consists of a group of nodes and connections between them, inspired respectively by the neurons and axons in a biological neural system. Figure \ref{sota:neuron} illustrates the structure of one neural node, which is also referred as \textit{perceptron} or simply \textit{neuron}. Each connection towards a neuron is an input ($x_i$) and is associated with a weight coefficient ($w_i$). The basic function of a neuron defines the input signal to the neuron as:
 \begin{equation}
     a = \sum _{ i }{ w_i x_i + b} 
 \end{equation}
@@ -37,7 +37,7 @@ The input signal is then passed into an activation function to produce the outpu
     y = f(a)
 \end{equation}
 
-Activation function is a differentiable function that resembles a step function so the neuron \textit{fires} with certain input. The original Rosenblatt's perceptron had Heaviside step function as the activation function \citep{Rosenblatt58theperceptron}. Activation functions commonly being used today are the \textit{sigmoid} and the \textit{hyperbolic tangent} functions. 
+Activation function is a differentiable function that originally resembles a step function so that the neuron \textit{fires} with certain input. The original Rosenblatt's perceptron had Heaviside step function as the activation function \citep{Rosenblatt58theperceptron}. Activation functions commonly being used today are the \textit{sigmoid} and the \textit{hyperbolic tangent} functions. 
 
 One single neuron is evidently not sufficient for modelling complex functions. A basic neural network consists of a layer of input neurons fully connected to a layer of output neurons. This setting produces an N-to-M mapping. Extra layers are added between the input and output layers to introduce even more complexity to the network. These layers are called \textit{hidden layers} and are fully connected between each other between input and output layers. An illustration of a neural network with two hidden layers is given in Figure \ref{sota:neuralnet}. Number of hidden layers can be determined according to the task-at-hand. A neural network with more than one hidden layer is called a \textit{deep neural network} \citep{yoav}. 
 
@@ -48,7 +48,7 @@ One single neuron is evidently not sufficient for modelling complex functions. A
   \label{sota:neuralnet}
 \end{figure}
 
-Although there exist many types of neural network taxonomies, one important characteristic that divides neural network architectures into two is the direction of the signal flow in the network. A \textit{feed-forward} architecture (as in the example in Figure \ref{sota:neuralnet}) allows information to be passed in only one direction. Whereas a \textit{recurrent neural network (RNN)} architecture allows the output signal of some nodes to be passed again to a neuron coming previously, or to the neuron itself. Recurrent neural networks are especially suitable for representing time-series data. Because of this, it is currently being preferred as the principal architecture on many state-of-the-art applications of machine translation, speech recognition and speech synthesis. 
+Although there exist many types of neural network taxonomies, one important characteristic that divides neural network architectures into two is the direction of the signal flow in the network. A \textit{feed-forward} network (as in the example in Figure \ref{sota:neuralnet}) allows information to be passed only in one direction, whereas a \textit{recurrent neural network (RNN)} network allows the output signal of some nodes to be passed again to a neuron coming previously, or to the neuron itself. Recurrent neural networks are especially suitable for representing time-series data. Because of this, it is currently being preferred as the principal architecture in many state-of-the-art applications of machine translation, speech recognition and speech synthesis. 
 
 \begin{figure}[t]
   \centering
@@ -57,31 +57,60 @@ Although there exist many types of neural network taxonomies, one important char
   \label{sota:rnn}
 \end{figure}
 
-As it can be seen in Figure \ref{sota:rnn}, a neuron in a RNN can have its output connected back to itself as an input. This model allows the neuron to keep a form of a \textit{memory} from previous inputs and decide on the next output according to it together with the current input. Another advantage the RNN architecture gives is the ability to represent different mappings between nodes at each time step. Figure \ref{sota:rnn_connections} shows types of connections between \textit{RNN cells}, which can be one-to-one, one-to-many, many-to-one or many-to-many. An application to a many-to-many network would be translation, where a sequence of words are encoded and then decoded in another language. An example of a many-to-one network would be e.g. voice classification given an acoustic feature sequence. This group of neural networks are sometimes called \textit{encoder-decoder networks}. Many-to-many type RNN is sometimes referred as \textit{sequence-to-sequence network}. 
+As it can be seen in Figure \ref{sota:rnn}, a neuron in a RNN can have its output connected back to itself as an input. This model allows the neuron to keep a form of a \textit{memory} from previous inputs and decide on the next output according to it together with the current input. Modelling inputs and outputs in a time-series enables the processing of either a fixed number or a sequence of vectors, one at a time. Different types of RNN-based architectures is demonstrated in Figure \ref{sota:rnn_connections}. A one-to-one network serves for fixed size input and output at each time step. Although this architecture is useful in, for example, image classification, it is not sufficient for modelling variable length data. A ``many'' type input or output means an arbitrary number of vectors can be introduced to and/or obtained from the model at each time step. Many-to-many architecture can either have input and output sequences synchronized (left in the figure), where an output is given for each input vector, or not (right in the figure). An example to an non-synchronized many-to-many type architecture is machine translation. A sequence of vectors representing words in source sentence is first input to the model. Then, words from the translated sentence are decoded from the output layer. This group of neural networks are sometimes called \textit{encoder-decoder networks}. Many-to-many type RNN is sometimes referred to as a \textit{sequence-to-sequence network} as introduced in \cite{sutskever}. 
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\linewidth]{img/rnn_types.pdf}
-  \caption{Four types of RNNs in terms of input and output type. }
+  \includegraphics[width=\linewidth]{img/rnn_types.pdf}
+  \caption{Various types of RNN architectures. Each box represents a vector. }
   \label{sota:rnn_connections}
 \end{figure}
 
 %backpropagation
-Neural network training involves the following steps: Introduction of samples in the training set to the network, computing the error with help of a \textit{loss function} comparing desired output to the networks output, computing the gradient given by the error and then shifting the network weights in the direction and magnitude of the gradient. One common method used in performing this operation is \textit{stochastic gradient descent (SGD)} \citep{bengio_dl, sgd2}. 
+\subsubsection*{Neural Network Training}
+The steps involved in neural network training can be summarized as follows: (1) introduction of samples in the training set to the network, (2) computing the error of the network regarding the desired and obtained output from the network, (3) computing the gradient given by the error and then (4) moving the network weights in the direction and magnitude of the gradient. 
 
-Although the aim of training is to minimize the total loss given by all training samples, optimization is performed at introduction of each sample. To avoid unnecessary amount of fluctuations (i.e.~noise) in weight updates, samples are generally inputted in batches, an average loss is calculated and then network is updated according to that average loss.  
+The error of a network is calculated with the \textit{loss function}:
 
-A key step in training is the step where gradients are calculated according to the loss that the network gives. This is performed through a method called \textit{backpropagation algorithm}, which is the process of going backwards through the network calculating the partial derivative of the error at each weight \citep{Rumelhart:1988:LRB:65669.104451}. These derivatives are then used to update the weights using a method called \textit{gradient descent}. This update is scaled by the \textit{learning rate}, which is a pre-determined \textit{hyperparameter} that is sometimes allowed to decay in time to enable fine-tuning of the network during later steps of the training. 
+\begin{equation}
+    E = \frac { 1 } { 2 } \left( y - f \left( \sum w _ { i } x _ { i } \right) \right) ^ { 2 }
+\end{equation}
+
+where $y$ represents the desired output, and $f(x)$ giving the output of the neural network. Using a method called \textit{backpropagation}, the error given by this function is traced back in the network layers using reverse differentiation. This is done by calculating the gradient of the loss function $\nabla J ( \theta )$ with respect to the weights $ \theta $ of the network.
+
+Updating of the weights of the network is done with an \textit{optimization algorithm}. The \textit{gradient descent} technique is used to find the minima in an error space by updating the parameters of the network in the opposite direction of the gradient scaled with a learning rate $\eta$:
+
+\begin{equation}
+ \theta =  \theta -  \eta \cdot \nabla J(  \theta )
+\end{equation}
+
+As the calculation of loss with respect to the whole dataset would be cumbersome for large training sets, \textit{stochastic gradient descent (SGD)} \citep{bengio_dl, sgd2} does the parameter updates for each training sample $\{ x ( i ) , y ( i ) \}$:
+
+\begin{equation}
+    \theta = \theta -  \eta \cdot  \nabla J ( \theta  ;  x ( i  ) ;  y  ( i ) )
+\end{equation}
+
+However, this method causes unnecessary fluctuations (i.e.~noise) in weight updates as it is done at each input sample. To avoid this, samples are input in batches and the average loss for that batch is used to update the network instead.
+
+Learning rate $\eta$ is a key hyperparameter in setting up neural network training. Optimizations on the selection and variance of this parameter is often crucial in DNN architectures. \textit{Learning rate scheduling} is performed to help network converge with smaller updates through the later stages of training. Several variations on the SGD account for this aspect and further adapts the learning rate at each batch to each parameter. \textit{Adagrad} does this modification based on past gradients that were calculated for the parameters \citep{adagrad}. \textit{Adam} chooses an accelarated learning rate in relavant directions and diminishes it in irrelevant directions \citep{DBLP:journals/corr/KingmaB14}. 
+
+% \subsubsection*{Short-term Memory Problem in RNNs}
+
+
+% \citep{longterm_is_difficult:1994}
+
 
 %TODO: vanishing, exploding gradient and overfitting will come here
 % overfitting is addressed with regularization. From \cite{Klejch}:We addressed this problem using a regularization approach based on dropout \cite{JMLR:v15:srivastava14a}, which forces a neural network to learn a more robust representation by randomly resetting a portion of activations of nodes during training.
 
-%\textit{long short-term memory (LSTM)}  \citep{lstm}  %(https://towardsdatascience.com/recurrent-neural-networks-and-lstm-4b601dd822a5)
+%\textit{long short-term memory (LSTM)}  \citep{Hochreiter}  %(https://towardsdatascience.com/recurrent-neural-networks-and-lstm-4b601dd822a5)
 
 %TODO: GRU
 %Gated recurrent units (GRU), was introduced as a simpler variant of LSTM units , GRUs make computation simpler by having fewer parameters. Number of gates in hidden units are reduced to two: (a) the \textit{reset} gate determines whether the previous memory will be ignored, and (b) the \textit{update} gate determines how much of the previous memory will be carried on. 
 
 %GRU figure
+
+
 
 \subsection{Automatic Speech Recognition}
 \label{sota:asr}
@@ -146,6 +175,8 @@ Recently, recurrent neural networks are shown to be suitable for punctuation res
 Machine Translation is defined as the automatic conversion of a sequence of symbols in one language to a sequence of symbols in another language \citep{bengio_dl}. It has evolved through years from rule-based systems (RBMT) to statistical approaches (SMT), which modeled the probabilities of mappings between sub-phrases of various sizes. These probabilities are learned in a statistical fashion from \textit{parallel texts} where sentence aligned translations are available in the languages involved (referred as source and target languages). 
 
 Neural machine translation (NMT) quickly replaced SMT in the recent years for its relatively simpler architecture. It no longer needed fine-tuning of smaller components involved in a SMT system and directly learned mapping from input text sequence to the target text sequence \citep{bahdanau, google_nmt}.
+
+%TODO: cite sutskever
 
 \begin{figure}[t]
   \centering
