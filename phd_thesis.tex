@@ -25,6 +25,7 @@
 \usepackage{url}
 \usepackage{enumitem}
 \usepackage{listings}
+\usepackage{listingsutf8}
 \usepackage{hhline}
 \usepackage{float}
 \usepackage{amsmath}
@@ -82,6 +83,10 @@
 \usepackage{makeidx}
 \makeindex
 
+%To get rid of the empty page at the beginning
+% \usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+% \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
 %CIRCLE AROUND CHARACTERS
 \usepackage{tikz}
  
@@ -128,33 +133,37 @@
 \supervisor{Dra. Mireia Farr\'{u}s i Dr. Antonio Bonafonte}
 
 \begin{document}
+
 \pagenumbering{gobble}
+\frontmatter
 
 \maketitle
-
+%\newpage\leavevmode\thispagestyle{empty}\newpage
 \cleardoublepage
 
 %%%%%% Dedication
 
-\noindent Write here your dedication
+% \noindent Write here your dedication
 
-\cleardoublepage
+%\cleardoublepage
 
 %%%%%% End dedication
 
 % Acknowledgements
-% ---------------------------------------------------------------------
+% % ---------------------------------------------------------------------
 \input{latex/acknowledgements.tex}
 \newpage\leavevmode\thispagestyle{empty}\newpage
-% ---------------------------------------------------------------------
+% % ---------------------------------------------------------------------
 
-\frontmatter
+%\frontmatter
 
 % Abstract
 % ---------------------------------------------------------------------
 \input{latex/abstract.tex}
-\newpage\leavevmode\thispagestyle{empty}\newpage
+\newpage\leavevmode\thispagestyle{empty}
 % ---------------------------------------------------------------------
+
+%\frontmatter
 
 % Table of contents
 % ---------------------------------------------------------------------

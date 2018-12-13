@@ -19,16 +19,18 @@ In spoken language, punctuation of the transcribed speech is influenced by two i
 %Both prosody and syntax should be looked at when determining punctuation
 During the manual transcription of an audio recording, both modalities, syntax and prosody, are used in determining the phrasing structure and punctuation. Example below illustrates the effect of prosody on punctuation, where the raw text could be punctuated in two different ways, eventually leading to two different meanings and syntactic structures. 
 
+\vfill
+
 \begin{description}
 \item [Raw] {\it and with all sincerity I can say I am glad I lived those two years of my life that way} 
 \item [(1a)] {\it And with all sincerity, I can say, I am glad I lived those two years of my life that way.}
 \item [(1b)] {\it And with all sincerity, I can say I am glad, I lived those two years of my life that way.}
 \end{description}
 
-\noindent Although it is ambiguous where to place the commas in this example just by looking at the transcription, by listening to the voice sample\footnote{Accessible from \url{github.com/alpoktem/punkProse/tree/master/audio-samples}}, there is only one possible punctuation: (1a), where {\it I lived those two years of my life that way} is a subordinated clause of {\it I am glad}. 
+\noindent Although it is ambiguous where to place the commas in this example just by looking at the transcription, by listening to the voice sample\footnote{Accessible from \url{github.com/alpoktem/ punkProse/tree/master/audio-samples}}, there is only one possible punctuation: (1a), where {\it I lived those two years of my life that way} is a subordinated clause of {\it I am glad}. 
 
 %buildup recent work
-Many state-of-the-art approaches to automatic punctuation restoration are driven by textual criteria only \citep{Cho2017NMTbasedSA, lu2010better, ueffing2013improved, Gravano,  jakubicek2010punctuation, Che2016PunctuationPF}. However, it is proved that combination of prosodic and acoustic features with a textual model improves accuracy in ASR output \citep{baron2002automatic, khomitsevich2015combining, tilk2015lstm, tilk2016bidirectional}. Some approaches that use textual and prosodic models (or a combination of them) consider punctuation placement with narrow-range features such as n-grams \citep{liu2006study, khomitsevich2015combining, Psutka04automaticpunctuation}. Recent data-driven approaches that use recurrent neural networks (RNN)\footnote{Explained in Section \ref{sota:dnns}} proved to be competitive for the task due to RNN's ability to capture long and short term syntactic dependencies. These models, moreover, get use of word vectors which proves to capture well both syntactic and semantic structure of the language \citep{Treviso, Che2016PunctuationPF}. However, such neural models that account for prosodic features (e.g.~\cite{tilk2015lstm, tilk2016bidirectional}) rely merely on pause duration between words, while other prosodic features such as pitch and intensity information are ignored. Another shortcoming of these approaches is that the models are trained either only on written data \citep{ballesterosneural, Che2016PunctuationPF} or on a combination of written and spoken data (with, again, a dominance of written material) \citep{tilk2016bidirectional}. This makes the trained models biased towards written data. 
+Many state-of-the-art approaches to automatic punctuation restoration are driven by textual criteria only \citep{Cho2017NMTbasedSA, lu2010better, ueffing2013improved, Gravano,  jakubicek2010punctuation, Che2016PunctuationPF}. However, it is proved that combination of prosodic and acoustic features with a textual model improves accuracy in ASR output \citep{baron2002automatic, khomitsevich2015combining, tilk2015lstm, tilk2016bidirectional}. Some approaches that use textual and prosodic models (or a combination of them) consider punctuation placement with narrow-range features such as n-grams \citep{liu2006study, khomitsevich2015combining, Psutka04automaticpunctuation}. Recent data-driven approaches that use recurrent neural networks (RNN) proved to be competitive for the task due to RNN's ability to capture long and short term syntactic dependencies. These models, moreover, get use of word vectors which proves to capture well both syntactic and semantic structure of the language \citep{Treviso, Che2016PunctuationPF}. However, such neural models that account for prosodic features (e.g.~\cite{tilk2015lstm, tilk2016bidirectional}) rely merely on pause duration between words, while other prosodic features such as pitch and intensity information are ignored. Another shortcoming of these approaches is that the models are trained either only on written data \citep{ballesterosneural, Che2016PunctuationPF} or on a combination of written and spoken data (with, again, a dominance of written material) \citep{tilk2016bidirectional}. This makes the trained models biased towards written data. 
 
 %So what... later-add
 My motivation extends from the necessity seen in inclusion of prosody in a more complete way into the problem of punctuation restoration on raw speech transcripts. In applications where automatic speech recognition is employed, it is possible to integrate a prosodic feature extraction framework which would contribute to the accuracy of the punctuation placement. Also, there is no earlier study mentioning the individual and combined effect of various prosodic features (e.g.~intonation, intensity, speech rate) to the generation of various punctuation marks in a neural-network based setting. For these reasons, this chapter gives focus to the development of a framework that enables testing of various prosodic features in the problem of punctuation restoration. Furthermore, the applicability of the introduced model is put into test on two distinct settings. Firstly, the effect of prosodic punctuation restoration is studied on quality of dependency parsing which is a method often used in natural language processing (NLP) applications. Secondly, the methodology is put into test with a real ASR system. 
@@ -159,11 +161,11 @@ The architecture of the model is inspired by the methodology presented in \cite{
 \end{figure}
 
 %extension, expandable architecture
-The modifications to Tilk and Alumäe's architecture are that (1) instead of passing prosodic feature values in a second stage, they are introduced to the model through separate parallel GRU layers that are tuned in one single stage, and (2) the proposed network is easily scalable so that it facilitates experimentation with different sets of features and configurations. The system can be configured to take any discrete features (e.g. word, part-of-speech (POS)) and prosodic features (e.g. f0 and intensity) to build a parallel layered network. Suprasegmental acoustic/prosodic features such as fundamental frequency, intensity and speech rate are aligned with words by taking the mean value corresponding to each word. 
+The modifications to Tilk and Alumäe's architecture are that (1) instead of passing prosodic feature values in a second stage, they are introduced to the model through separate parallel GRU layers that are tuned in one single stage, and (2) the proposed network is easily scalable so that it facilitates experimentation with different sets of features and configurations. The system can be configured to take any discrete features (e.g. word, part-of-speech (POS)) and prosodic features (e.g. F0 and intensity) to build a parallel layered network. Suprasegmental acoustic/prosodic features such as fundamental frequency, intensity and speech rate are aligned with words by taking the mean value corresponding to each word. 
 
 \begin{figure}[h]
 \centering\includegraphics[width=\linewidth]{img/parallelRNNet_updated.png}
-\caption{Our neural network architecture depicting processing of a speech data sample with pause and mean f0 features aligned at the word level.}
+\caption{Our neural network architecture depicting processing of a speech data sample with pause and mean F0 features aligned at the word level.}
 \label{architecture}
 \end{figure}
 
@@ -184,7 +186,7 @@ h_{p}(t)~=~GRU(p(t)W_{p},~h_{p}(t-1))
 \overleftarrow{h_{m}}(t)~=~GRU(m(t)W_{m},~h_{m}(t-1))
 \end{equation}
 
-\noindent where $x(t)$, $p(t)$ and $m(t)$ are the word index, pause duration and mean f0 value respectively at time step $t$. %and N is the sequence size.
+\noindent where $x(t)$, $p(t)$ and $m(t)$ are the word index, pause duration and mean F0 value respectively at time step $t$. %and N is the sequence size.
 The parallel GRU states are concatenated to form the context vector $h(t)$ before being passed over as input to another unidirectional GRU layer:
 
 \begin{equation}
@@ -234,9 +236,9 @@ Theano \citep{theano} was used for implementing the models. In the experimental 
 
 The models were trained in batches of size 128. The weight matrices are updated using the \textit{AdaGrad} algorithm \citep{adagrad} with a learning rate of 0.05 for minimizing the negative log-likelihood of the predicted punctuation sequence. 
 
-Two ways of inputting prosodic features into the model are tested. First, values are input as their absolute values in a continuous fashion, i.e.~pause durations in seconds, mean f0 values in semitones, intensity values in dB, and speech rate normalized within -1 and 1. Secondly, they are inputted as discrete values (in levels) and passed through an embedded layer similar to words and POS features. Leveling of the prosodic values was done by dividing each feature's normal distribution to quantiles of 100, so that more frequent ranges are represented more precisely. 
+Two ways of inputting prosodic features into the model are tested. First, values are input as their absolute values in a continuous fashion, i.e.~pause durations in seconds, mean F0 values in semitones, intensity values in dB, and speech rate normalized within -1 and 1. Secondly, they are inputted as discrete values (in levels) and passed through an embedded layer similar to words and POS features. Leveling of the prosodic values was done by dividing each feature's normal distribution to quantiles of 100, so that more frequent ranges are represented more precisely. 
 
-\subsection{How do prosodic features in speech affect punctuation placement?}
+\subsection{How do Prosodic Features in Speech Affect Punctuation Placement?}
 \label{punkProse:experiments:q1}
 This section reports on the results obtained by training various models using different feature settings in terms of punctuation restoration accuracy. As the majority of the punctuation marks in the dataset consists of the punctuation marks in the reduced set (comma, period and question mark), experiments were performed only with this set.
 
@@ -245,7 +247,7 @@ The two-stage method by Tilk and Alumäe is used as a baseline by training over 
 In the proposed single stage approach, the use of only lexical information (words) provides the same scores as the use of only words in the two-stages approach, since only one step is involved in both approaches. In order to assess the contribution of new prosodic information to our model, more prosodic features were added one by one until no improvement is recorded. 
 
 \subsubsection{Results}
-The outcome of experiments in generating periods, commas and question marks with different settings of features are listed in Table \ref{scores} and illustrated in Figures \ref{overall-punk} and \ref{each-punk}. The results reported here use prosodic feature as continuous values in order to ensure comparability with the baseline. The best performing model was re-trained using discretized features and reported as well with the label \textit{discretized}. Additionally, a model with only prosodic features that ignores word information was tested (labeled as \textit{no words}). 
+The outcome of experiments in generating periods, commas and question marks with different settings of features are listed in Table \ref{scores} and illustrated in Figures \ref{fig:main}a and \ref{fig:main}b. The results reported here use prosodic feature as continuous values in order to ensure comparability with the baseline. The best performing model was re-trained using discretized features and reported as well with the label \textit{discretized}. Additionally, a model with only prosodic features that ignores word information was tested (labeled as \textit{no words}). 
 
 Compared to the two-stage models performance on the same dataset, first improvement is achieved through employing of the parallel processing architecture: An average improvement for all punctuation marks in terms of $F_1$ score of 0.4\% when the same features (word and pause durations) are used. The model opens the way for a further improvement of 2\% with the addition of pitch and POS feature into the model, and finally, with the introduction of discretized prosodic features, an overall $F_1$ score of 70.3\% is obtained.
 
@@ -291,16 +293,31 @@ The improved scores, which are achieved through discretization of continuous pro
 	\label{scores}
 \end{table}
 
+% \begin{figure}
+%     \begin{tabular}{cc}
+%       \includegraphics[height=4.5mm]{img/prosograph_datatypes/pause.png} &   \includegraphics[height=4.5mm]{img/prosograph_datatypes/punctuation.png} \\
+%     (a) pause-duration & (b) punctuation\\[6pt]
+%      \includegraphics[height=4.5mm]{img/prosograph_datatypes/binary.png} &   \includegraphics[height=11mm]{img/prosograph_datatypes/point.png} \\
+%     (c) binary-feature & (d) point-feature\\[6pt]
+%      \includegraphics[height=11mm]{img/prosograph_datatypes/line.png} &   \includegraphics[height=8mm]{img/prosograph_datatypes/curve.png} \\
+%     (e) line-feature & (f) contour-feature\\[6pt]
+%      \includegraphics[height=6mm]{img/prosograph_datatypes/percentage.png} &   \includegraphics[height=7mm]{img/prosograph_datatypes/label.png} \\
+%     (g) percentage-feature & (h) label-feature \\[6pt]
+%     \end{tabular}
+% \end{figure}
+
 \begin{figure}
-\begin{minipage}{.8\linewidth}
-\centering
-\subfloat[]{\label{overall-punk} \includegraphics[scale=.99]{img/csl/overall-punk.png}}
-\end{minipage}%
-\par\medskip
-\centering
-\subfloat[]{\label{each-punk}\includegraphics[scale=.99]{img/csl/each-punk.png}}
-\caption{(a) Overall punctuation results in terms of precision, recall and $F_1$ score (b) $F_1$ score of each punctuation mark in different feature settings.}
-\label{fig:main}
+
+    \centering
+    \includegraphics[width=\linewidth]{img/csl/overall-punk.png} \\
+    (a)
+
+    \par\medskip
+    \centering
+    \includegraphics[width=\linewidth]{img/csl/each-punk.png}\\
+    (b)
+    \caption{(a) Overall punctuation results in terms of precision, recall and $F_1$ score (b) $F_1$ score of each punctuation mark in different feature settings.}
+    \label{fig:main}
 \end{figure}
 
 Table \ref{examples} shows some examples from the testing set punctuated with solely word-based and word-prosody combined model. Listening to the audio samples, one can spot some examples that show improvement caused by prosodic models (sentences 2c and 4c in Table \ref{examples}). 
@@ -337,25 +354,29 @@ ID & Model & Sentence  \\
 % 5b & Word & if you do that tomorrow, i'll be dead, you'll be dead every single one of the men will be dead. \\
 % 5c & W\&Pr & if you do that tomorrow, i'll be dead. you'll be dead. every single one of the men will be dead. \\     
 \end{tabular}
-\caption{Punctuation generation results for a set of sentences. Audio samples can be accessed from the Github repository\footnote{\url{github.com/alpoktem/punkProse/tree/master/audio-samples}}.}
+\caption{Punctuation generation results for a set of sentences. Audio samples can be accessed from the Github repository\protect\footnotemark.}
 \label{examples}
 \end{table}
 
-\subsection{What's the effect of punctuation presence to syntactic parsing?}
+\footnotetext{\url{github.com/alpoktem/punkProse/tree/master/audio-samples}}
+
+\subsection{What's the Effect of Punctuation Presence to Syntactic Parsing?}
 \label{punkProse:experiments:q2}
 The first step of many NLP applications involves the parsing of an input phrase to the system. In a system with human input for example, it allows further interpretation of the input phrase through a syntactic analysis. The output of a syntactic parser is a \textit{dependency tree}, where the sentence is defined as a group of relations between the elements of a sentence. Figure \ref{punkProse:figure:parsing} illustrates an example of a dependency tree. Most syntactic parsers are statistical in a sense that they determine these relations based on knowledge gained from a huge corpus of hand-annotated dependency trees. Words, as well as punctuation marks are the nodes of dependency trees. 
 
 \begin{figure}[h]
 \centering\includegraphics[width=\linewidth]{img/dependency_tree.png}
-\caption{An example of a dependency tree generated with an English parser\footnote{\url{http://corenlp.run/}}.}
+\caption{An example of a dependency tree generated with an English parser\protect\footnotemark.}
 \label{punkProse:figure:parsing}
 \end{figure}
+
+\footnotetext{\url{http://corenlp.run/}}
 
 As much as human understanding of written language is affected by it, syntactic parsers also depend on punctuation marks on input sentences \citep{Jones:1994:ERP:991886.991960}. First and most important cue lying in punctuation is the sentence boundaries. Syntactic parsing is generally performed on a sentence. Thus, parsing of huge texts imply segmentation of it from sentence boundaries. Other punctuation marks have also effect on parsing as they are grammatical and semantic elements of a sentence. 
 
 In this section, I will perform an experiment on examining the effect of punctuation placed by the trained prosodic punctuation models on dependency parsing. Specifically, I wanted to examine if the commas predicted with our models help the parsing. As wrong placement of commas could decrease the parser accuracy, I wanted to test if the relatively low-scoring comma prediction helps the parser output. 
 
-\subsubsection*{Experimental setup}
+\subsubsection*{Experimental Setup}
 
 One hundred sentences that represent different types of comma events have been collected from our test set. The collection includes simple to complex sentences with commas used for different functions; e.g., enumeration, dislocation of noun phrases, and clause division, among others. Some sentences in which different placement of commas could lead to different semantic or syntactic structures have also been chosen. 
 
@@ -373,20 +394,20 @@ The results listed in Table \ref{parsing} show that dependencies are labeled wro
          &  \multicolumn{2}{c}{Similarity}  \\
          Setting   							& LAS   &  UAS  \\
 		\midrule
-        Unpunctuated 					& 83.4\% & 86.3\% \\
-		Punctuated with word feature	& 88.4\% & 89.8\% \\
-		Punctuated with word and prosodic features  & 89.1\% & 90.6\% \\
+        Unpunctuated 					& $83.4\%$ & $86.3\%$ \\
+		Punctuated with word feature	& $88.4\%$ & $89.8\%$ \\
+		Punctuated with word and prosodic features  & $89.1\%$ & $90.6\%$ \\
 		\bottomrule
 	\end{tabular}
 	\caption{Parsing similarity results}
 	\label{parsing}
 \end{table}
 
-\subsection{Performance with ASR output}
+\subsection{Performance with ASR Output}
 \label{punkProse:experiments:q3}
 In this section, I further extend on the performance tests by attaching the developed prosodic punctuation restoration models into a speech recognition pipeline. A testing interface is prepared that uses a state-of-the-art ASR system to convert spoken input to raw transcription and \textit{Prosograph} \citep{prosograph} to analyze the input prosody. Punctuation restoration is then performed on the raw transcripts with the two types of models models that were trained during the experiments: Text-only model and best performing text+prosodic model. Through these tests it is possible to see the performance of the proposed methodology on a setting closer to a real-world use case \citep{punkProse}.
 
-\subsubsection{Overview of the testing interface}
+\subsubsection{Overview of the Testing Interface}
 
 The testing interface is designed so that spoken input can be given to the interface either by recording with microphone or by presenting a pre-recorded file which is then sent to an ASR system for transcription. The transcriptions, punctuated with our models, are displayed together with their graphical prosodic visualizations. 
 
@@ -394,7 +415,7 @@ As depicted in Figure \ref{punkProse:figure:testing_system}, the pipeline of the
 
 \begin{figure*}
 \begin{center}
-\includegraphics[width=0.7\textwidth]{img/punkProse_setup.pdf}
+\includegraphics[width=1.0\textwidth]{img/punkProse_setup.pdf}
 \caption{Architecture of the interactive ASR testing setup.}
 \label{punkProse:figure:testing_system}
 \end{center}
@@ -408,7 +429,7 @@ As depicted in Figure \ref{punkProse:figure:testing_system}, the pipeline of the
 \end{center}
 \end{figure*}
 
-\subsubsection{Selected testing samples}
+\subsubsection{Selected Testing Samples}
 Here I will show some samples from the Heroes Corpus running through the testing interface. I test on examples from the movie domain to get insight on how the proposed model would work on an automatic captioning use case. 
 
 Figure \ref{figure:heroes_pp_1} shows an example that was recognized well with the ASR system. Both text and prosodic punctuation restoration models perform well in recognizing the sentence boundary. Figure \ref{figure:heroes_pp_2} illustrates an example where the ASR system fails to recognize the speech input accurately. In this example, textual model works better in determining the boundary marked by a comma in the original sentence. Even though the boundary is marked by a long pause, the prosodic model doesn't perform well due to the ungrammatical structure of the recognized utterance. 
@@ -419,75 +440,57 @@ All in all, the models trained on conference speeches show an acceptable and usa
 
 \begin{figure}[h]
     \centering
-    \begin{minipage}[t]{0.5\textwidth}
     \begin{tabular}{c}
     \textbf{Original utterance}\\
     I'm so sorry I left you. It wasn't easy for me. \\
     \end{tabular}
-    \end{minipage}
     %\hfill
     \\
-    \begin{minipage}[t]{0.35\textwidth}
     \begin{tabular}{c}
     \textbf{Prosodic visualization}\\
     \includegraphics[height=1.5cm]{img/s2_5_0227-EN.png} \\
     \end{tabular}
-    \end{minipage}
     \\
-    \begin{minipage}[t]{0.5\textwidth}
     \begin{tabular}{c}
     \textbf{Punctuation restored (Word model)}\\
-    i'm so sorry i left you. it wasn't easy for me \\
+    i'm so sorry i left you\mycirc{\textbf{.}} it wasn't easy for me \\
     \end{tabular}
-    \end{minipage}
     \\
-    \begin{minipage}[t]{0.5\textwidth}
     \begin{tabular}{c}
     \textbf{Punctuation restored (Word+Prosodic model)}\\
-    i'm so sorry i left you. it wasn't easy for me \\
+    i'm so sorry i left you\mycirc{\textbf{.}} it wasn't easy for me \\
     \end{tabular}
-    \end{minipage}
     \caption{Segment pair s2\_5\_0227 from the Heroes corpus}
     \label{figure:heroes_pp_1}
 \end{figure}
 \hfill
 \begin{figure}[h]
     \centering
-    \begin{minipage}[t]{3.5\textwidth}
     \begin{tabular}{c}
     \textbf{Original utterance}\\
-    This American girl, she's hitting all the boys on the dock... looking for a certain shipping container. \\
+    This American girl, she's hitting all the boys on the dock... \\ looking for a certain shipping container. \\
     \end{tabular}
-    \end{minipage}
     %\hfill
     \\
-    \begin{minipage}[t]{3\textwidth}
     \begin{tabular}{c}
     \textbf{Original Prosodic visualization}\\
     \includegraphics[height=1.5cm]{img/s2_5_0107_asr.png} \\
     \end{tabular}
-    \end{minipage}
     \\
-    \begin{minipage}[t]{3\textwidth}
     \begin{tabular}{c}
     \textbf{Prosodic visualization of recognized speech}\\
     \includegraphics[height=1.5cm]{img/s2_5_0107.png} \\
     \end{tabular}
-    \end{minipage}
     \\
-    \begin{minipage}[t]{2.2\textwidth}
     \begin{tabular}{c}
     \textbf{Punctuation restored (Word model)}\\
-    spanish american girl, sitting all the boys on the doctors looking for a certain shipping container.   \\
+    spanish american girl\mycirc{\textbf{,}} sitting all the boys on the doctors \\ looking for a certain shipping container\mycirc{\textbf{.}}   \\
     \end{tabular}
-    \end{minipage}
     \\
-    \begin{minipage}[t]{2.2\textwidth}
     \begin{tabular}{c}
     \textbf{Punctuation restored (Word+Prosodic model)}\\
-    spanish american girl sitting all the boys on the doctors looking for a certain shipping container.  \\
+    spanish american girl sitting all the boys on the doctors \\ looking for a certain shipping container\mycirc{\textbf{.}}  \\
     \end{tabular}
-    \end{minipage}
     \caption{Segment pair s2\_5\_0107 from the Heroes corpus}
     \label{figure:heroes_pp_2}
 \end{figure}
@@ -495,58 +498,48 @@ All in all, the models trained on conference speeches show an acceptable and usa
 \hfill
 \begin{figure}[h]
     \centering
-    \begin{minipage}[t]{0.5\textwidth}
     \begin{tabular}{c}
     \textbf{Original utterance}\\
     You care about her, don't you? \\
     \end{tabular}
-    \end{minipage}
     %\hfill
     \\
-    \begin{minipage}[t]{0.5\textwidth}
     \begin{tabular}{c}
     \textbf{Original Prosodic visualization}\\
-    \includegraphics[height=1.5cm]{img/s2_5_0114.png} \\
+    \includegraphics[height=2cm]{img/s2_5_0114.png} \\
     \end{tabular}
-    \end{minipage}
     \\
-    \begin{minipage}[t]{0.5\textwidth}
     \begin{tabular}{c}
     \textbf{Prosodic visualization of recognized speech}\\
-    \includegraphics[height=1.5cm]{img/s2_5_0114_asr.png} \\
+    \includegraphics[height=2.5cm]{img/s2_5_0114_asr.png} \\
     \end{tabular}
-    \end{minipage}
     \\
-    \begin{minipage}[t]{0.5\textwidth}
     \begin{tabular}{c}
     \textbf{Punctuation restored (Word model)}\\
-    you care about it .  \\
+    you care about it\mycirc{\textbf{.}}  \\
     \end{tabular}
-    \end{minipage}
     \\
-    \begin{minipage}[t]{0.5\textwidth}
     \begin{tabular}{c}
     \textbf{Punctuation restored (Word+Prosodic model)}\\
-    you care about it ? \\
+    you care about it\mycirc{\textbf{?}} \\
     \end{tabular}
-    \end{minipage}
-    
+
     \caption{Segment pair s2\_5\_0114 from the Heroes corpus}
     \label{figure:heroes_pp_3}
 \end{figure}
 
 \section{Conclusion}
 \label{punkProse:discussion}
-%TODO: review
-In this chapter, I have presented a recurrent neural network architecture that processes lexical and prosodic information in parallel for the generation of punctuation in speech transcripts, avoiding the dominance of written data, and thus the bias of trained models towards written material. The proposed model allows the integration of any desired feature (lexical, syntactic or prosodic) and thus a further analysis of the impact of every feature used on the punctuation generation. In addition, the current model achieves a significant improvement over previous works that used two stages and were biased to written data. An overall $F_1$ score of 70.3\% is reported for comma, period and question mark generation in the used dataset. 
+In this chapter, I have presented a recurrent neural network architecture that processes lexical and prosodic information in parallel for the generation of punctuation in speech transcripts, avoiding the dominance of written data, and thus the bias of trained models towards written material. The proposed model allows the integration of any desired feature (lexical, syntactic or prosodic) and thus a further analysis of the impact of every feature used on the punctuation generation. In addition, the current model achieves a significant improvement over previous works that used two stages and were biased to written data. An overall $F_1$ score of 70.3\% is reported for restoration of three punctuation marks. For individual punctuation marks, $F_1$ scores of 83\%, 71.8\% and 55.2\% were reported respectively for period, question mark and comma employing various other feature combinations. The low scores on the comma could be a hint that annotation style for commas vary between different annotators more than other punctuation marks. This should be verified with an experiment evaluating annotator agreement as future work.  
 
 %3. Conclusions on the prosodic features tested so far
 
-The results are shown to be significantly better when syntactic and prosodic features are added to the lexical information. Solely pauses ---when trained with a separate RNN --- improve considerably the vocabulary-based scores. Moreover, f0- and intensity-based prosodic features help to achieve a better comma and period detection in terms of $F_1$ measure. All in all, the best combination of prosodic features is when the model is trained on words, their POS tags together with the preceding pause durations and their normalized mean f0 values. 
+The results are shown to be significantly better when syntactic and prosodic features are added to the lexical information. Solely pauses --when trained with a separate RNN -- improve considerably the vocabulary-based scores. Moreover, F0- and intensity-based prosodic features help to achieve a better comma and period detection in terms of $F_1$ measure. All in all, the best combination of prosodic features is when the model is trained on words, their POS tags together with the preceding pause durations and their normalized mean F0 values. 
 
-Further experiments have been carried out to test the performance of the models on parsing and ASR output. Quantitative metrics on parsing of single sentences showed that prosodic models perform better in obtaining correct dependency trees with syntactic parsing. On a demonstrative setting where ASR was employed, reasonable performance is recorded in recovering punctuation marks on out-of-domain spoken input. Through further model adaptation (e.g. vocabulary extension and speaker adaptation) better results can be obtained.
+Further experiments have been carried out to test the performance of the models on parsing and ASR output. Quantitative metrics on parsing of single sentences showed that prosodic models perform better in accurate syntactic parsing. Results also show the relatively poorly detected commas in terms of $F_1$ scores are still useful. 
 
-%TODO: add this
-%Effect of prosody in punctuation restoration modelling was tested on two subsequent processes: dependency parsing and machine translation. The former evaluation was conducted on a small dataset and showed that accounting of prosody does imply an improvement in correct paring of the sentences. This shows that commas which are detected more accurately with prosodic models does improve parsing despite its low F-score.
+On a demonstrative setting where ASR was employed, reasonable performance is recorded in recovering punctuation marks on out-of-domain spoken input. Through further model adaptation (e.g. vocabulary extension and speaker adaptation) better results can be obtained.
 
-%TODO: Commalarin boktan olmasi buyuk ihtimalle annotationdaki farkliliklarda yatiyor. Comma en az aggree olan punc. 
+
+In this chapter, I have introduced the automatic punctuation restoration framework and experiments revolving around prosodic punctuation restoration. Next chapter, I will present the work on movie domain spoken language translation. 
+
