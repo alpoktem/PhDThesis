@@ -1,0 +1,5 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+algo|Annapoora|heroes_s3_16_spa_aligned.segment113.word1|0.0|0.3|0.3|1.65|0.03|NA|||150.0|61.0|-2.4938|-0.047
+triste|Annapoora|heroes_s3_16_spa_aligned.segment113.word2|0.33|0.65|0.32|0.03|0.03|NA||,|129.0|52.0|-5.1049|-2.8106
+es|Annapoora|heroes_s3_16_spa_aligned.segment113.word3|0.68|0.83|0.15|0.03|0.0|NA|||172.0|61.0|-0.1244|-0.047
+todo|Annapoora|heroes_s3_16_spa_aligned.segment113.word4|0.83|1.0|0.17|0.0|0.65|NA||.|132.0|49.0|-4.7069|-3.8393

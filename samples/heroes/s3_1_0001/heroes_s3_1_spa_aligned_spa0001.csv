@@ -1,0 +1,5 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+vamos|Peter|heroes_s3_1_spa_aligned.segment1.word1|0.0|0.45|0.45|29.64|0.0|NA||,|130.0|56.0|-0.6389|-1.034
+claire|Peter|heroes_s3_1_spa_aligned.segment1.word2|0.45|0.97|0.52|0.0|1.29|NA||.|136.0|54.0|0.1423|-1.6636
+soy|Peter|heroes_s3_1_spa_aligned.segment1.word3|2.26|2.48|0.22|1.29|0.0|NA|||155.0|57.0|2.4062|-0.7276
+yo|Peter|heroes_s3_1_spa_aligned.segment1.word4|2.48|2.87|0.39|0.0|2.569|NA||.|0.0|0.0|0.0|0.0

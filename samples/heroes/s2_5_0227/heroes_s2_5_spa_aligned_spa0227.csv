@@ -1,0 +1,11 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+lo|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word1|0.0|0.09|0.09|0.74|0.03|NA|||0.0|0.0|0.0|0.0
+siento|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word2|0.12|0.46|0.34|0.03|0.03|NA|||77.0|55.0|-8.9907|-2.2518
+mucho|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word3|0.49|0.74|0.25|0.03|0.0|NA||,|83.0|62.0|-7.6917|-0.1778
+siento|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word4|0.74|1.08|0.34|0.0|0.0|NA|||114.0|63.0|-2.1975|0.0992
+haberte|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word5|1.08|1.34|0.26|0.0|0.0|NA|||105.0|64.0|-3.6212|0.3719
+abandonado|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word6|1.34|1.88|0.54|0.0|0.0|NA||.|104.0|66.0|-3.7869|0.9046
+no|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word7|1.88|1.99|0.11|0.0|0.0|NA|||156.0|68.0|3.2327|1.4214
+me|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word8|1.99|2.07|0.08|0.0|0.0|NA|||149.0|72.0|2.4379|2.411
+fue|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word9|2.07|2.24|0.17|0.0|0.0|NA|||146.0|65.0|2.0857|0.6403
+fácil|MAURY PARKMAN|heroes_s2_5_spa_aligned.segment227.word10|2.24|2.53|0.29|0.0|0.926|NA||.|150.0|61.0|2.5537|-0.4593

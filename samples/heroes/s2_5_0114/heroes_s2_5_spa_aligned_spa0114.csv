@@ -1,0 +1,5 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+te|RICKY|heroes_s2_5_spa_aligned.segment114.word1|0.0|0.09|0.09|2.235|0.0|NA|||100.0|51.0|-0.8925|-3.7169
+gusta|RICKY|heroes_s2_5_spa_aligned.segment114.word2|0.09|0.33|0.24|0.0|0.0|NA|||94.0|61.0|-1.9637|-0.6171
+mucho|RICKY|heroes_s2_5_spa_aligned.segment114.word3|0.33|0.62|0.29|0.0|0.0|NA||,|96.0|60.0|-1.5992|-0.9033
+verdad|RICKY|heroes_s2_5_spa_aligned.segment114.word4|0.62|0.85|0.23|0.0|0.785|NA|¿|?|0.0|0.0|0.0|0.0

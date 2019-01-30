@@ -1,0 +1,13 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+cuando|MOHINDER|heroes_s2_5_spa_aligned.segment20.word1|0.0|0.27|0.27|1.709|0.0|NA|||98.0|68.0|-1.8276|1.1965
+nos|MOHINDER|heroes_s2_5_spa_aligned.segment20.word2|0.27|0.44|0.17|0.0|0.0|NA|||0.0|0.0|0.0|0.0
+enfrentamos|MOHINDER|heroes_s2_5_spa_aligned.segment20.word3|0.44|1.01|0.57|0.0|0.0|NA|||86.0|65.0|-4.0889|0.4154
+a|MOHINDER|heroes_s2_5_spa_aligned.segment20.word4|1.01|1.05|0.04|0.0|0.0|NA|||86.0|66.0|-4.0889|0.6797
+nuestras|MOHINDER|heroes_s2_5_spa_aligned.segment20.word5|1.05|1.4|0.35|0.0|0.0|NA|||112.0|66.0|0.4842|0.6797
+pesadillas|MOHINDER|heroes_s2_5_spa_aligned.segment20.word6|1.4|2.16|0.76|0.0|0.27|NA||,|127.0|61.0|2.6601|-0.6842
+las|MOHINDER|heroes_s2_5_spa_aligned.segment20.word7|2.43|2.59|0.16|0.27|0.0|NA|||0.0|0.0|0.0|0.0
+alternativas|MOHINDER|heroes_s2_5_spa_aligned.segment20.word8|2.59|3.24|0.65|0.0|0.0|NA|||81.0|65.0|-5.1259|0.4154
+que|MOHINDER|heroes_s2_5_spa_aligned.segment20.word9|3.24|3.35|0.11|0.0|0.0|NA|||0.0|0.0|0.0|0.0
+tenemos|MOHINDER|heroes_s2_5_spa_aligned.segment20.word10|3.35|3.68|0.33|0.0|0.0|NA|||0.0|0.0|0.0|0.0
+son|MOHINDER|heroes_s2_5_spa_aligned.segment20.word11|3.68|3.83|0.15|0.0|0.06|NA|||99.0|63.0|-1.6518|-0.1256
+pocas|MOHINDER|heroes_s2_5_spa_aligned.segment20.word12|3.89|4.21|0.32|0.06|0.72|NA||:...|109.0|60.0|0.0141|-0.9703

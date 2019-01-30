@@ -1,0 +1,5 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+it's|Nathan|heroes_s3_12_eng_aligned.segment124.word1|0.0|0.09|0.09|0.36|0.0|NA|||96.0|63.0|-1.2936|0.0284
+all|Nathan|heroes_s3_12_eng_aligned.segment124.word2|0.09|0.2|0.11|0.0|0.0|NA|||96.0|63.0|-1.2936|0.0284
+right|Nathan|heroes_s3_12_eng_aligned.segment124.word3|0.2|0.65|0.45|0.0|0.03|NA||,|117.0|72.0|2.1312|2.3402
+scott|Nathan|heroes_s3_12_eng_aligned.segment124.word4|0.68|0.85|0.17|0.03|0.3|NA||.|105.0|66.0|0.2578|0.8338

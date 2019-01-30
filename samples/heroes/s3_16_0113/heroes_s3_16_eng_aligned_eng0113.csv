@@ -1,0 +1,7 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+just|Annapoora|heroes_s3_16_eng_aligned.segment113.word1|0.0|0.16|0.16|0.84|0.53|NA|||190.0|55.0|0.1623|-0.9618
+a|Annapoora|heroes_s3_16_eng_aligned.segment113.word2|0.69|0.89|0.2|0.53|0.1|NA|||0.0|0.0|0.0|0.0
+little|Annapoora|heroes_s3_16_eng_aligned.segment113.word3|0.99|1.18|0.19|0.1|0.0|NA|||96.0|54.0|-11.6565|-1.2795
+sad|Annapoora|heroes_s3_16_eng_aligned.segment113.word4|1.18|1.47|0.29|0.0|0.03|NA||,|197.0|53.0|0.7886|-1.6031
+that's|Annapoora|heroes_s3_16_eng_aligned.segment113.word5|1.5|1.68|0.18|0.03|0.0|NA|||0.0|0.0|0.0|0.0
+all|Annapoora|heroes_s3_16_eng_aligned.segment113.word6|1.68|1.83|0.15|0.0|0.21|NA||.|118.0|52.0|-8.0843|-1.9329

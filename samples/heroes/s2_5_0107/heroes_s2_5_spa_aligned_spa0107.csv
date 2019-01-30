@@ -1,0 +1,16 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+una|WORKER|heroes_s2_5_spa_aligned.segment107.word1|0.0|0.25|0.25|5.244|0.03|NA|||125.0|58.0|3.5512|0.4955
+chica|WORKER|heroes_s2_5_spa_aligned.segment107.word2|0.28|0.57|0.29|0.03|0.0|NA|||91.0|57.0|-1.9447|0.1944
+americana|WORKER|heroes_s2_5_spa_aligned.segment107.word3|0.57|1.08|0.51|0.0|0.02|NA||...|0.0|0.0|0.0|0.0
+estaba|WORKER|heroes_s2_5_spa_aligned.segment107.word4|1.1|1.66|0.56|0.02|0.3|NA|||0.0|0.0|0.0|0.0
+tonteando|WORKER|heroes_s2_5_spa_aligned.segment107.word5|1.96|2.59|0.63|0.3|0.0|NA|||112.0|57.0|1.65|0.1944
+con|WORKER|heroes_s2_5_spa_aligned.segment107.word6|2.59|2.76|0.17|0.0|0.0|NA|||83.0|55.0|-3.5377|-0.424
+los|WORKER|heroes_s2_5_spa_aligned.segment107.word7|2.76|2.85|0.09|0.0|0.0|NA|||0.0|0.0|0.0|0.0
+chicos|WORKER|heroes_s2_5_spa_aligned.segment107.word8|2.85|3.21|0.36|0.0|0.0|NA|||123.0|56.0|3.272|-0.112
+del|WORKER|heroes_s2_5_spa_aligned.segment107.word9|3.21|3.38|0.17|0.0|0.04|NA|||0.0|0.0|0.0|0.0
+muelle|WORKER|heroes_s2_5_spa_aligned.segment107.word10|3.42|3.78|0.36|0.04|0.07|NA||...|87.0|57.0|-2.7229|0.1944
+en|WORKER|heroes_s2_5_spa_aligned.segment107.word11|3.85|3.91|0.06|0.07|0.0|NA|||0.0|0.0|0.0|0.0
+busca|WORKER|heroes_s2_5_spa_aligned.segment107.word12|3.91|4.22|0.31|0.0|0.0|NA|||117.0|57.0|2.4062|0.1944
+de|WORKER|heroes_s2_5_spa_aligned.segment107.word13|4.22|4.46|0.24|0.0|0.0|NA|||83.0|58.0|-3.5377|0.4955
+cierto|WORKER|heroes_s2_5_spa_aligned.segment107.word14|4.46|5.07|0.61|0.0|0.03|NA|||138.0|55.0|5.2641|-0.424
+contenedor|WORKER|heroes_s2_5_spa_aligned.segment107.word15|5.1|5.62|0.52|0.03|0.0|NA||.|78.0|56.0|-4.6134|-0.112

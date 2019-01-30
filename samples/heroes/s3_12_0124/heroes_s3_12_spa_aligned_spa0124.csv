@@ -1,0 +1,4 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+qué|Nathan|heroes_s3_12_spa_aligned.segment124.word1|0.0|0.06|0.06|0.0|0.8|NA|¿||0.0|0.0|0.0|0.0
+lleva|Nathan|heroes_s3_12_spa_aligned.segment124.word2|0.86|1.04|0.18|0.8|0.0|NA|||118.0|63.0|4.113|0.667
+eso|Nathan|heroes_s3_12_spa_aligned.segment124.word3|1.04|1.13|0.09|0.0|0.221|NA||?|111.0|61.0|3.0542|0.1085

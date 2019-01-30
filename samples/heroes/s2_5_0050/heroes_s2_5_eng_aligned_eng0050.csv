@@ -1,0 +1,7 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+i'm|MONICA|heroes_s2_5_eng_aligned.segment50.word1|0.0|0.11|0.11|1.42|0.0|NA|||77.0|53.0|-16.7506|-1.9553
+sorry|MONICA|heroes_s2_5_eng_aligned.segment50.word2|0.11|0.66|0.55|0.0|0.9|NA||,|84.0|58.0|-15.2442|-0.3946
+i|MONICA|heroes_s2_5_eng_aligned.segment50.word3|1.56|1.63|0.07|0.9|0.0|NA|||77.0|58.0|-16.7506|-0.3946
+can't|MONICA|heroes_s2_5_eng_aligned.segment50.word4|1.63|1.92|0.29|0.0|0.0|NA|||137.0|58.0|-6.7756|-0.3946
+do|MONICA|heroes_s2_5_eng_aligned.segment50.word5|1.92|2.0|0.08|0.0|0.0|NA|||243.0|63.0|3.1457|1.037
+that|MONICA|heroes_s2_5_eng_aligned.segment50.word6|2.0|2.25|0.25|0.0|3.99|NA||.|166.0|59.0|-3.4515|-0.0987

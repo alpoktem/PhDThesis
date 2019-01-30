@@ -1,0 +1,7 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+you|RICKY|heroes_s2_5_eng_aligned.segment114.word1|0.0|0.14|0.14|1.96|0.0|NA|||0.0|0.0|0.0|0.0
+care|RICKY|heroes_s2_5_eng_aligned.segment114.word2|0.14|0.34|0.2|0.0|0.0|NA|||108.0|61.0|-1.2688|0.0487
+about|RICKY|heroes_s2_5_eng_aligned.segment114.word3|0.34|0.54|0.2|0.0|0.0|NA|||90.0|60.0|-4.4252|-0.2375
+her|RICKY|heroes_s2_5_eng_aligned.segment114.word4|0.54|0.6|0.06|0.0|0.0|NA||,|77.0|60.0|-7.126|-0.2375
+don't|RICKY|heroes_s2_5_eng_aligned.segment114.word5|0.6|0.85|0.25|0.0|0.0|NA|||87.0|59.0|-5.0121|-0.5285
+you|RICKY|heroes_s2_5_eng_aligned.segment114.word6|0.85|0.95|0.1|0.0|1.019|NA||?|0.0|0.0|0.0|0.0

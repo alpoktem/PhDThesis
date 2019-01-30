@@ -1,0 +1,6 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+come|Peter|heroes_s3_1_eng_aligned.segment1.word1|0.0|0.13|0.13|0.0|0.0|NA|||0.0|0.0|0.0|0.0
+on|Peter|heroes_s3_1_eng_aligned.segment1.word2|0.13|0.25|0.12|0.0|0.0|NA||,|97.0|59.0|-7.1791|-1.0677
+claire|Peter|heroes_s3_1_eng_aligned.segment1.word3|0.25|0.84|0.59|0.0|1.15|NA||.|129.0|60.0|-2.2434|-0.7768
+it's|Peter|heroes_s3_1_eng_aligned.segment1.word4|1.99|2.33|0.34|1.15|0.0|NA|||0.0|0.0|0.0|0.0
+me|Peter|heroes_s3_1_eng_aligned.segment1.word5|2.33|2.69|0.36|0.0|2.71|NA||.|132.0|58.0|-1.8454|-1.3637

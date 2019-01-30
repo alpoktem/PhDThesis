@@ -1,0 +1,7 @@
+word|speaker_id|id|start_time|end_time|duration|pause_before|pause_after|pos|punctuation_before|punctuation_after|f0_mean_hz|i0_mean_db|f0_mean|i0_mean
+esto|RICKY|heroes_s2_5_spa_aligned.segment10.word1|0.0|0.3|0.3|1.747|0.0|NA|||98.0|71.0|-1.2423|2.011
+lo|RICKY|heroes_s2_5_spa_aligned.segment10.word2|0.3|0.47|0.17|0.0|0.0|NA|||110.0|73.0|0.7575|2.4919
+llevabas|RICKY|heroes_s2_5_spa_aligned.segment10.word3|0.47|1.02|0.55|0.0|0.0|NA|||118.0|68.0|1.9729|1.2636
+ayer|RICKY|heroes_s2_5_spa_aligned.segment10.word4|1.02|1.44|0.42|0.0|0.04|NA|||93.0|66.0|-2.1489|0.7467
+al|RICKY|heroes_s2_5_spa_aligned.segment10.word5|1.48|1.62|0.14|0.04|0.0|NA|||106.0|68.0|0.1163|1.2636
+encontrarte|RICKY|heroes_s2_5_spa_aligned.segment10.word6|1.62|2.21|0.59|0.0|0.21|NA||.|98.0|63.0|-1.2423|-0.0586
